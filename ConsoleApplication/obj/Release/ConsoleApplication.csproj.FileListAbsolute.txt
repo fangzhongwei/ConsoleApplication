@@ -1,0 +1,5 @@
+C:\Users\fangzhongwei\RiderProjects\ConsoleApplication\ConsoleApplication\bin\Release\ConsoleApplication.exe
+C:\Users\fangzhongwei\RiderProjects\ConsoleApplication\ConsoleApplication\bin\Release\ConsoleApplication.pdb
+C:\Users\fangzhongwei\RiderProjects\ConsoleApplication\ConsoleApplication\obj\Release\ConsoleApplication.csprojResolveAssemblyReference.cache
+C:\Users\fangzhongwei\RiderProjects\ConsoleApplication\ConsoleApplication\obj\Release\ConsoleApplication.exe
+C:\Users\fangzhongwei\RiderProjects\ConsoleApplication\ConsoleApplication\obj\Release\ConsoleApplication.pdb
