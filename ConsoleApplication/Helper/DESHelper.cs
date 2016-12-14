@@ -64,5 +64,45 @@ namespace ConsoleApplication.Helper
                 return "";
             }
         }
+
+        public static byte[] EncodeBytes(byte[] bytes, string key)
+        {
+            try
+            {
+                DESCryptoServiceProvider provider = new DESCryptoServiceProvider();
+                provider.Key = Encoding.ASCII.GetBytes(key.Substring(0, 8));
+                provider.IV = Encoding.ASCII.GetBytes(key.Substring(0, 8));
+                MemoryStream stream = new MemoryStream();
+                CryptoStream stream2 = new CryptoStream(stream, provider.CreateEncryptor(), CryptoStreamMode.Write);
+                stream2.Write(bytes, 0, bytes.Length);
+                stream2.FlushFinalBlock();
+                stream.Close();
+                return stream.ToArray();
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.ToString());
+                return new byte[0];
+            }
+        }
+
+        public static byte[] DecodeBytes(byte[] array, string key)
+        {
+            try
+            {
+                DESCryptoServiceProvider provider = new DESCryptoServiceProvider();
+                provider.Key = Encoding.ASCII.GetBytes(key.Substring(0, 8));
+                provider.IV = Encoding.ASCII.GetBytes(key.Substring(0, 8));
+                MemoryStream stream = new MemoryStream();
+                CryptoStream stream2 = new CryptoStream(stream, provider.CreateDecryptor(), CryptoStreamMode.Write);
+                stream2.Write(array, 0, array.Length);
+                stream2.FlushFinalBlock();
+                stream.Close();
+                return stream.ToArray();
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.ToString());
+                return new byte[0];
+            }
+        }
     }
 }

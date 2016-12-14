@@ -1,5 +1,7 @@
 ﻿using  System;
 using  System.IO;
+using System.Linq;
+using System.Text;
 using ConsoleApplication.Helper;
 using Google.Protobuf;
 
@@ -7,7 +9,7 @@ namespace ConsoleApplication
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        public static void Main1(string[] args)
         {
             Console.WriteLine("Hello Proto.-----------------------------------------------------------------");
 
@@ -54,7 +56,26 @@ namespace ConsoleApplication
             Console.WriteLine("Hello Proto.+OOOOOOOOOO++++++++++++++++++++++++++++++++++++++++++++++++");
             string str = Console.ReadLine();
             Console.WriteLine(str);
+        }
 
+        public static void Main(string[] args)
+        {
+            byte[] array = Encoding.GetEncoding("UTF-8").GetBytes("aaaaaabbbbbbbbcccccccddddddffff中国11111");
+            var result = string.Join(",", array.Select(x => x.ToString()).ToArray());
+
+
+            Console.WriteLine(result);
+
+
+
+            byte[] compress = GZipHelper.compress(array);
+            var result2 = string.Join(",", compress.Select(x => x.ToString()).ToArray());
+
+            Console.WriteLine("length:" + compress.Length);
+            Console.WriteLine(result2);
+            AsynchronousClient.StartClient("127.0.0.1", 4200);
+
+            Console.WriteLine("Hello Proto.+OOOOOOOOOO++++++++++++++++++++++++++++++++++++++++++++++++");
         }
     }
 }

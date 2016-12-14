@@ -44,13 +44,13 @@ namespace ConsoleApplication.Helper
         public static byte[] readHeader(byte[] bytes, int readLength) {
             byte[] destBytes = new byte[readLength];
             Array.Copy(bytes, 0, destBytes, 0, readLength);
-            return bytes;
+            return destBytes;
         }
 
         public static byte[] readTail(byte[] bytes, int readLength) {
             byte[] destBytes = new byte[readLength];
-            Array.Copy(bytes, 0, destBytes, 0, readLength);
-            return bytes;
+            Array.Copy(bytes, bytes.Length - readLength, destBytes, 0, readLength);
+            return destBytes;
         }
     }
 }
