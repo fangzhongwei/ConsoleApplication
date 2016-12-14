@@ -26,6 +26,7 @@ public class AsynchronousClient {
     // The response from the remote device.
     private static  byte[] dataContentArray = new byte[0];
 
+
     public static void StartClient(String ip, int port) {
         // Connect to a remote device.
         try {
@@ -118,7 +119,6 @@ public class AsynchronousClient {
                 state.arrayBuffer = ByteHelper.combineTowBytes(state.arrayBuffer, ByteHelper.readHeader(state.buffer, bytesRead));
 
 
-                Console.WriteLine("case byteRead > 0, length:" + state.arrayBuffer.Length);
 
                 if (bytesRead < 256)
                 {
@@ -130,8 +130,6 @@ public class AsynchronousClient {
                 client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0, new AsyncCallback(ReceiveCallback), state);
             } else {
 
-
-                Console.WriteLine("case byteRead == 0, length:" + state.arrayBuffer.Length);
 
                 // All the data has arrived; put it in response.
                 if (state.arrayBuffer.Length > 0) {
