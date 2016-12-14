@@ -78,9 +78,12 @@
     <Compile Include="Google.Protobuf\Properties\*" />
     <Compile Include="Google.Protobuf\Reflection\*" />
     <Compile Include="Google.Protobuf\WellKnownTypes\*" />
+    <Compile Include="RX\CreditCard.cs" />
+    <Compile Include="RX\IObserver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Google.Protobuf" />
+    <Folder Include="RX" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

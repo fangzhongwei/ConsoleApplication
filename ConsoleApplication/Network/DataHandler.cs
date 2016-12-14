@@ -4,9 +4,9 @@ using ConsoleApplication.Helper;
 
 public class DataHandler
 {
-    public static void handle(int actionType, byte[] data)
+    public static void handle(int actionType, byte[] data, string key)
     {
-        byte[] decodeBytes = DESHelper.DecodeBytes(data, "ABCD1234");
+        byte[] decodeBytes = DESHelper.DecodeBytes(data, key);
         byte[] decompress = GZipHelper.Decompress(decodeBytes);
 
         using (MemoryStream stream = new MemoryStream(decompress))

@@ -215,7 +215,7 @@ public class AsynchronousClient {
                 if (readByteArrayResponse.success)
                 {
                     readStep = 1;
-                    DataHandler.handle(socketActionType, readByteArrayResponse.data);
+                    DataHandler.handle(socketActionType, readByteArrayResponse.data, "ABCD1234");
                     if (dataContentArray.Length > 0)
                     {
                         handle(readStep);

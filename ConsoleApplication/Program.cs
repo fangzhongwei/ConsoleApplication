@@ -58,7 +58,7 @@ namespace ConsoleApplication
             Console.WriteLine(str);
         }
 
-        public static void Main(string[] args)
+        public static void Main11(string[] args)
         {
             byte[] array = Encoding.GetEncoding("UTF-8").GetBytes("aaaaaabbbbbbbbcccccccddddddffff中国11111");
             var result = string.Join(",", array.Select(x => x.ToString()).ToArray());
@@ -76,6 +76,16 @@ namespace ConsoleApplication
             AsynchronousClient.StartClient("127.0.0.1", 4200);
 
             Console.WriteLine("Hello Proto.+OOOOOOOOOO++++++++++++++++++++++++++++++++++++++++++++++++");
+        }
+
+        static void Main(string[] args)
+        {
+            CreditCard creditCard = new CreditCard();
+            SMSNotify sms = new SMSNotify();
+            Account account = new Account(1000);
+            CreditCard.SpendMoney += account.Update;
+            CreditCard.SpendMoney += sms.Update;
+            creditCard.SpendAmount = 200;
         }
     }
 }
