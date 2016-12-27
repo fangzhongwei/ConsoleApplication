@@ -80,6 +80,7 @@
     <Compile Include="Google.Protobuf\WellKnownTypes\*" />
     <Compile Include="RX\CreditCard.cs" />
     <Compile Include="RX\IObserver.cs" />
+    <Compile Include="Protobuffer\*" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Google.Protobuf" />
